@@ -36,7 +36,7 @@ app.get("/", async (req: Request, res: Response) => {
 
 });
 app.post("/post", async (req: Request, res: Response) => {
-    const query = `INSERT INTO product (id, name, price) VALUES (3, 'ewdfdf', 4545);`;
+    const query = `INSERT INTO product (id, name, price) VALUES (${req.body.id}, ${req.body.name}, ${req.body.price});`;
     const result = await client.query(query);
     res.json({
         success: true,
